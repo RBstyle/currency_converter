@@ -1,0 +1,12 @@
+version: '1'
+
+services:
+
+  web:
+    build: .
+    command: sh -c "python /currency_converter/currency_converter/manage.py migrate && python /currency_converter/currency_converter/manage.py runserver 0.0.0.0:8000"
+    container_name: test_curr_conv
+    volumes:
+      - .:/currency_converter
+    ports:
+      - "8000:8000"
